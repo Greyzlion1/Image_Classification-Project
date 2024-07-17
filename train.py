@@ -25,7 +25,11 @@ transformer = transforms.Compose([
 ])
 
 transformer2 = torchvision.transforms.Compose([
+<<<<<<< HEAD
     # Add your transformations here, for example:
+=======
+    # Adding transformations
+>>>>>>> 9ce17a3 (Updated)
     torchvision.transforms.Resize((150, 150)),
     torchvision.transforms.ToTensor(),
     transforms.Normalize([0.5, 0.5, 0.5], #0-1 to [-1,1] , formula (x-mean)/std
@@ -34,6 +38,7 @@ transformer2 = torchvision.transforms.Compose([
 
 #Dataloader helps to read data
 
+<<<<<<< HEAD
 # Path for training and testing directory
 train_path = r"C:\Users\ASUS\Downloads\Project detection\seg_train\seg_train"
 test_path = r"C:\Users\ASUS\Downloads\Project detection\seg_test\seg_test"
@@ -44,6 +49,12 @@ test_path = r"C:\Users\ASUS\Downloads\Project detection\seg_test\seg_test"
 #     torchvision.transforms.ToTensor()
 # ])
 
+=======
+# Here, I added Path for training and testing directory
+train_path = r"C:\Users\ASUS\Downloads\Project detection\seg_train\seg_train"
+test_path = r"C:\Users\ASUS\Downloads\Project detection\seg_test\seg_test"
+#Here I am Training DataLoader
+>>>>>>> 9ce17a3 (Updated)
 train_loader = DataLoader(
     torchvision.datasets.ImageFolder(train_path, transform=transformer),
     batch_size=16, shuffle=True
@@ -64,18 +75,30 @@ class ConvNet(nn.Module):
     def __init__(self, num_classes=6):
         super(ConvNet, self).__init__()
 
+<<<<<<< HEAD
         # Creating first Convolutional Layer
+=======
+        # Here I am creating first Convolutional Layer
+>>>>>>> 9ce17a3 (Updated)
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=12, kernel_size=3, stride=1, padding=1)
         self.bn1 = nn.BatchNorm2d(num_features=12)
         self.relu1 = nn.ReLU()
         self.pool = nn.MaxPool2d(kernel_size=2)
 
+<<<<<<< HEAD
         # Creating second Convolutional Layer
         self.conv2 = nn.Conv2d(in_channels=12, out_channels=20, kernel_size=3, stride=1, padding=1)
         self.relu2 = nn.ReLU()
 
         # Creating third Convolutional Layer
         #
+=======
+        # Here I am creating second Convolutional Layer
+        self.conv2 = nn.Conv2d(in_channels=12, out_channels=20, kernel_size=3, stride=1, padding=1)
+        self.relu2 = nn.ReLU()
+
+        # Here I am creating third Convolutional Layer
+>>>>>>> 9ce17a3 (Updated)
         self.conv3 = nn.Conv2d(in_channels=20, out_channels=32, kernel_size=3, stride=1, padding=1)
         self.bn3 = nn.BatchNorm2d(num_features=32)
         self.relu3 = nn.ReLU()
@@ -110,7 +133,11 @@ model=ConvNet(num_classes=6).to(device)#Initializing the model and moves it to d
 #Optimizer and loss function
 
 optimizer=Adam(model.parameters(),lr=0.001,weight_decay=0.0001)
+<<<<<<< HEAD
 loss_function=nn.CrossEntropyLoss()# Measure the precision of model prediction vs actual labels
+=======
+loss_function=nn.CrossEntropyLoss()# Here it measure the precision of model prediction vs actual labels
+>>>>>>> 9ce17a3 (Updated)
 
 num_epochs=12 #1o itirations 
 
@@ -159,7 +186,11 @@ for epoch in range(num_epochs):
 
     print(f'Epoch: {epoch + 1}, Train Loss: {train_loss:.4f}, Train Accuracy: {train_accuracy:.4f}, Test Accuracy: {test_accuracy:.4f}')
 
+<<<<<<< HEAD
     # Save the best model
+=======
+    # Here I am saving the best model
+>>>>>>> 9ce17a3 (Updated)
     if test_accuracy > best_accuracy:
         torch.save(model.state_dict(), 'best_checkpoint.model')
         best_accuracy = test_accuracy

@@ -1,10 +1,18 @@
+<<<<<<< HEAD
+=======
+#Loading Libraries
+>>>>>>> 9ce17a3 (Updated)
 from flask import Flask, request, redirect, url_for, render_template
 from PIL import Image
 import os
 from flask import Flask, jsonify,request
 from test import predict
 app = Flask(__name__)
+<<<<<<< HEAD
 
+=======
+#Setting Up Route
+>>>>>>> 9ce17a3 (Updated)
 @app.route('/classify', methods=['POST'])
 def classify():
     print(request.files)

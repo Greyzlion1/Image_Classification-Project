@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+#Loading Libraries
+>>>>>>> 9ce17a3 (Updated)
 import os
 import numpy as np
 import torch
@@ -90,7 +94,11 @@ transformer2= transforms.Compose({
 })
 
 class_names = ['building', 'forest', 'glacier', 'mountain', 'sea', 'street']
+<<<<<<< HEAD
 
+=======
+#Prediction Function
+>>>>>>> 9ce17a3 (Updated)
 def predict(image_path):
 
     x = plt.imread(image_path)
@@ -108,7 +116,11 @@ def predict(image_path):
     output = model(x_tensor)
     index = output.data.cpu().numpy().argmax()  #index is number of predicted class
     predicted_class = class_names[index]
+<<<<<<< HEAD
     # you should have classes list similar to ['mountain', ...] so that you can see the class by printing class[index]
+=======
+    # should have classes list similar to ['mountain', ...] so I can see the class by printing class[index]
+>>>>>>> 9ce17a3 (Updated)
    
     # then you can return index or class name instead of raw output
     img = plt.imread(image_path)
@@ -117,8 +129,11 @@ def predict(image_path):
     # plt.show()
 
     return predicted_class
+<<<<<<< HEAD
    
  #os.listdir 
+=======
+>>>>>>> 9ce17a3 (Updated)
 # for item in os.listdir(r"images\\"):
 # print(predict("fileName"))
 #print(os.listdir(r"images\\"))
