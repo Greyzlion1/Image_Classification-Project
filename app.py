@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-=======
 #Loading Libraries
->>>>>>> 9ce17a3 (Updated)
 from flask import Flask, request, redirect, url_for, render_template
 from PIL import Image
 import os
 from flask import Flask, jsonify,request
 from test import predict
 app = Flask(__name__)
-<<<<<<< HEAD
-
-=======
-#Setting Up Route
->>>>>>> 9ce17a3 (Updated)
 @app.route('/classify', methods=['POST'])
 def classify():
     print(request.files)
@@ -40,7 +32,7 @@ def upload_image():
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(file_path)
 
-            # Open the uploaded image
+            # Opening the uploaded image
             image = Image.open(file_path)
             image.show()
             return f'Image uploaded and opened successfully: {file_path}'
